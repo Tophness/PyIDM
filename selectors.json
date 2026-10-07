@@ -1,0 +1,132 @@
+[
+  {
+    "enabled": true,
+    "id": 1,
+    "name": "youtube.com",
+    "params": {
+      "101": "~youtube.com|*.youtube.com|~youtube-nocookie.com|*.googlevideo.com|drive.google.com|*.c~drive.google.com|docs.google.com|youtube.googleapis.com|workspacevideo-*.clients*.google.com",
+      "102": "(?:www|music)\\.youtube\\.com/|drive\\.google\\.com/(?:drive|file)/|youtube\\.googleapis\\.com/",
+      "111": "^/videoplayback\\b",
+      "112": "^/api/timedtext\\?(?:.*?&)?fmt=\\w+",
+      "113": "/(?:get|api)_video_info\\b",
+      "114": "^/api/manifest/dash\\b",
+      "115": "^/(?:watch\\?(?:.*?&)?(?:pbj=1|pbj=prefetch|spf=navigate)\\b|youtubei/v1/(?:player|get_watch|account/get_setting_values)\\b|v1/drive/media/[^?/]+/playback\\b)",
+      "116": "(?:\\bytInitialPlayerResponse|[^.]\\bytplayer\\.config|\\bwindow\\.viewerData|'PLAYER_CONFIG')\\s*[=:]\\s*\\{",
+      "117": "/(?:yts/jsbin/player_\\w+-|s/player/)([\\w-]{8,9})(?:/player_\\w+\\.\\w+)?/\\w+/base\\.js\\b",
+      "118": "20702:8c3fda2d|20710:1c642fb9|20711:4fd832e7|20712:ecb23058|20716:dac2d7b2|20717:7460dd14|20719:fb50cd46|20723:57bae81f|20725:8ab5c328|20726:1f293754",
+      "119": "\\b(?:sts|signatureTimestamp)\"?[:=]\\s*\"?(\\d{5,})\\b|\\bvar\\s+\\w+=\\s*(\\d{5,});[^{}]+\\(\"STS\"",
+      "120": "([\\w$]+)=\\s*\\{(?:\"?[\\w$]+\"?:\\s*function\\([\\w\\s,]+\\)\\{(?:var\\s+(\\w+)=[^{}]+=\\s*\\2|\\w+(?:\\.splice|\\[([\\w$]+)\\[\\d+\\]\\])\\(0,\\s*\\w+\\)|\\w+(?:\\.reverse|\\[([\\w$]+)\\[\\d+\\]\\])\\(\\))\\},?\\s*){3}\\}",
+      "121": "[\\w$]+=\\s*function\\((\\w+),(\\w+),\\w+\\)?\\)\\{if\\([^{}]+\\)\\{var\\s+(\\w+)=\\s*\\2[.[]?[^;]+;[^{}]*\\b${1.1}[.[][^{}]+\\bvar\\s+(\\w+)=\\s*\\3[.[].+?return\\s+\\4}",
+      "123": "\\bytcfg\\.set\\(\\{(?=.*?\"EXPERIMENT_FLAGS\":)(?=.*?\"STS\":(\\d{5,})\\b|)(?=.*?\"DATASYNC_ID\":\"(.+?)\"|)(?=.*?\"LOGGED_IN\":(\\w+)\\b|)(?=.*?\"INNERTUBE_CONTEXT\":\\{\"client\":\\{((?:[^{}]|\\{[^{}]*\\})+)\\}|)(?=.*?\"EOM_VISITOR_DATA\":\"(.+?)\"|)(?=.*?\"PLAYER_JS_URL\":\"(.+?)\"|)(?=.*?\"SESSION_INDEX\":\"(\\d)\"|)",
+      "124": "^/(?:watch\\?(?:.*?&)?v=|shorts/|embed/|embed/?\\?(?:.*?&)?docid=)([\\w-]{10,12}|[\\w-]{33})(?:[/?&#]|$)",
+      "125": "$> *[role=\"main\"]:not(hidden) video, :scope >div#player video, ytmusic-player div#song-image img",
+      "126": "$< div#inline-preview-player $< a#media-container-link",
+      "127": "[\\w$]+=\\s*function\\((\\w+),(\\w+),\\w+\\)?\\)\\{if\\(+\\1\\b.+?\\btypeof\\s+([\\w$]+)===?(([\\w$]+)\\[\\d+\\]|\"undefined\")\\)(\\w+)=\\2\\b.+?return\\s+\\6}",
+      "128": "\"PLAYER_JS_URL\":\\s*\"(.+?)\"",
+      "129": "$= yt.config_.DATASYNC_ID $= ytcfg.data_.DATASYNC_ID",
+      "130": "$= yt.config_.EOM_VISITOR_DATA $= ytcfg.data_.EOM_VISITOR_DATA $= yt.config_.VISITOR_DATA $= ytcfg.data_.VISITOR_DATA",
+      "131": "(?<=\\bvar\\s+)${3.3}=.+?(?=[;,}])",
+      "132": "(?<=\\bvar\\s+)${3.5}=(([\"']).*?\\2\\.split\\(([\"']).\\3\\)|\\[(?:(?:\".*?\"|'.*?')(?:,\\s*|(?=\\])))+\\])(?=[;,])",
+      "133": "$<< $> :scope >video +div >canvas",
+      "134": "default_kevlar_base|*.instance.networkManager|fetchFn"
+    }
+  },
+  {
+    "enabled": true,
+    "id": 2,
+    "name": "facebook.com",
+    "params": {
+      "101": "~facebook.com|~workplace.com|*.fbcdn.net",
+      "102": "(?:(?:www|web)\\.facebook|[\\w-]+\\.workplace)\\.com/",
+      "111": "^/video/(?:\\w+/async/?|video_data_async/?\\?video_id=)(\\d+)[/&]",
+      "112": "/(?:videos/(?:\\w+\\.\\d+/)?|watch(?:/\\w+)?/?\\?(?:.*?&)?v=|video/embed\\?(?:.*?&)?video_id=|reel/)(\\d+)(?:[/&]|$)",
+      "113": "\\\"?videoData\\\"?\\s*:\\s*\\[\\{|\"(?:media|video|mediaset|channel_tab_popular_video)\":\\s*\\{(?:.*?\"(?:videoId|permalink_url|playable_url|dash_manifest|manifest_xml|message|augments)\":){2,}",
+      "114": "^/api/graphql\\b",
+      "115": "$> div[id^=\"mount_0_\"]",
+      "116": "$> div[id^=\"mount_0_\"] >div:is([class=\"\"],:not([class])) $> :scope >div.html-div >*, :scope >:not(div.html-div) < $> :scope >div[class=\"\"] >div:first-child",
+      "117": "$< div[id^=\"mount_0_\"] div[class=\"\"] div[class=\"\"], div[id^=\"mount_0_\"] div[role=\"dialog\"] div[data-pagelet=\"TahoeVideo\"]",
+      "118": "$> :scope >div:first-child",
+      "119": "$* div[role=\"main\"]",
+      "120": 4,
+      "121": "$* div >span >a:only-child:not([aria-label])",
+      "122": "$> :scope >div:not([role]) >div:only-child >div:only-child >div:first-child:nth-last-child(2):nth-last-of-type(2)",
+      "123": "*.return.return.memoizedProps.videoFBID",
+      "124": "a:not([target])",
+      "125": "$< div >:not(:only-child):not(video:first-child,img:first-child:nth-last-child(2)) <",
+      "126": "$> div[data-video-id] $= data-video-id",
+      "127": "$= poster"
+    }
+  },
+  {
+    "enabled": true,
+    "id": 3,
+    "name": "vimeo.com",
+    "params": {
+      "101": "~vimeo.com",
+      "102": "player\\.vimeo\\.com/video/\\d+",
+      "111": "player.vimeo.com",
+      "112": "^/video/",
+      "113": "\\bplayerConfig\\s*=\\s*\\{",
+      "114": "^(?:[^/]+|player\\.vimeo\\.com/video)/(\\d{2,})",
+      "115": "$| video:scope $| video",
+      "116": "$> :scope >div.player",
+      "117": "$& div.vp-video $& div.vp-telecine"
+    }
+  },
+  {
+    "enabled": true,
+    "id": 4,
+    "name": "instagram.com",
+    "params": {
+      "101": "~instagram.com|*.cdninstagram.com",
+      "102": "(?:www\\.)?instagram\\.com/",
+      "111": "^/(?:api/v1/(?:media/\\d+/info|users/web_profile_info|feed)/|api/graphql\\b|graphql/query\\b|ajax/route-definition\\b|(?:p|tv)/\\w+/?\\?__a=1)",
+      "112": "\"require\":\\s*\\[\\[\"(?:PolarisQueryPreloaderCache|RelayPrefetchedStreamCache)\",",
+      "113": "\"video_versions\":\\s*\\[|\"__typename\":\\s*\"GraphVideo\"",
+      "114": "div[id^=\"mount_0_\"]",
+      "115": "$+ article:scope, div.x1xfsgkm:scope $* main[role=\"main\"] article, main[role=\"main\"] >div >div.x1xfsgkm",
+      "116": "$& div.xzkaem6 div[aria-modal][role=\"dialog\"] div >article <",
+      "117": "$* video",
+      "118": "$& div.xxzkxad $& :scope >div[class] $& section main[role=\"main\"] $& :scope >div $& div.xw7yly9 >div >div[style]:only-child $& div >article <",
+      "119": "$& div.xxzkxad $& :scope >div[class] $& section main[role=\"main\"] $& :scope >div $& div:first-child >div[role=\"button\"][aria-hidden], article[role=\"presentation\"] $& div:first-child >div[style]:first-child:empty < $& div[role=\"presentation\"] >div >ul",
+      "120": "$= poster $< <<<<<< $> div:scope >img:first-child, div[data-instancekey] div >img:first-child $= src",
+      "121": "$< <<<<< $= *.children.props.children.props.post.code",
+      "122": "*.return.return.memoizedProps.coreVideoPlayerMetaData.videoFBID",
+      "123": "/(?:p|reel|reels|stories/[\\w.-]+)/([\\w-]{11}|\\d{19})(?=[/?#]|$)(?!.*[?&]img_index=)",
+      "124": "$& :scope >div:not([class]) >div[class] $& div.xg6iff7, div.xippug5 $& section.x5qyhuo >div:first-child $&41 :scope >div:not([role]):only-child"
+    }
+  },
+  {
+    "enabled": true,
+    "id": 5,
+    "name": "ok.ru",
+    "params": {
+      "101": "~ok.ru|*.mycdn.me",
+      "102": "ok\\.ru/video/",
+      "111": "^/dk\\?cmd=AutoplayLayerMovie",
+      "112": "(<div\\s+data-module=\"OKVideo\"\\s+data-options=[^>]+>)",
+      "113": "div[data-module=\"OKVideo\"][data-options]"
+    }
+  },
+  {
+    "enabled": true,
+    "id": 6,
+    "name": "hydrax.to",
+    "params": {
+      "101": "hydrax.to",
+      "102": "hydrax\\.to/public/dist/index\\.html\\?",
+      "111": "^/playlist/\\w+/(\\d+)|^/hls/\\w+/\\w+"
+    }
+  },
+  {
+    "enabled": true,
+    "id": 7,
+    "name": "udemy.com",
+    "params": {
+      "101": "~udemy.com",
+      "102": "www\\.udemy\\.com/course/",
+      "111": "\\.(m3u8|mpd)(\\?|$)",
+      "112": "~< section ~= aria-label"
+    }
+  }
+]
